@@ -11,10 +11,12 @@ export class ActiveUsersComponent {
   constructor (
     private userService: UserService
   ) {}
-
+  
+  inactivationsCounter = this.userService.inactivationsCounter;
   activeUsers = this.userService.activeUsers;
 
   onSetToInactive(id: number) {
     this.userService.onSetToInactive(id);
+    this.inactivationsCounter = this.userService.inactivationsCounter;
   }
 }

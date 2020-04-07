@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { UserService } from '../user.service';
 
 @Component({
@@ -13,8 +13,11 @@ export class InactiveUsersComponent {
   ) {}
 
   inactiveUsers = this.userService.inactiveUsers;
+  activationsCounter = this.userService.activationsCounter;
+  inactivationsCounter = this.userService.inactivationsCounter;
 
   onSetToActive(id: number) {
     this.userService.onSetToActive(id);
+    this.activationsCounter = this.userService.activationsCounter;
   }
 }
